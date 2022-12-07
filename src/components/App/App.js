@@ -33,7 +33,7 @@ export class App extends Component {
       <AppCard>
 
         <Section sectionTitle={"please leave feedback"}>
-          <FeedbackButttons onclick={this.setFeedbackAmount}/>
+          <FeedbackButttons options = {['good', 'neutral', 'bad']} onLeaveFeedback={this.setFeedbackAmount}/>
         </Section>
 
         <Section>

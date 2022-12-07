@@ -10,6 +10,7 @@ export const SectionEl = styled.section`
 
 export const SectionTitle = styled.h2`
     margin: 0 auto 40px;
+    word-spacing: 16px;
     font-size: 40px;
     text-transform: uppercase;
     text-align: center;

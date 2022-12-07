@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 
 export const FeedbackStatistics = styled.div`
+margin: 0 auto;
 width: 480px;
 height: 100px;
 display: flex;

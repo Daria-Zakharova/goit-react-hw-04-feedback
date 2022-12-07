@@ -26,6 +26,7 @@ transition: box-shadow ease-in 300ms;
 }
 
 .btn__text{
+    text-transform: capitalize;
     font-size: 18px;
     color: var(--color-line);
 }`;
