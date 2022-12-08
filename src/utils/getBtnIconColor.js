@@ -1,5 +1,4 @@
 export const getBtnIconColor = btnValue => {
-    console.log(btnValue);
     switch (btnValue) {
         case 'good':
             return '#3f8125';
