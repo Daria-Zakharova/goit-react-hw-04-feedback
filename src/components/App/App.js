@@ -23,12 +23,13 @@ export class App extends Component {
 
   render() {
     const total = this.countTotalFeedback();
+    const options = Object.keys(this.state);
 
     return (
       <AppCard>
 
         <Section sectionTitle={"please leave feedback"}>
-          <FeedbackButttons options = {['good', 'neutral', 'bad']} onLeaveFeedback={this.setFeedbackAmount}/>
+          <FeedbackButttons options = {options} onLeaveFeedback={this.setFeedbackAmount}/>
         </Section>
 
         <Section>
