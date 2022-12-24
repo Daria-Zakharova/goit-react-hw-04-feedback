@@ -1,4 +1,4 @@
-import React, {Component, useState} from "react";
+import React, {useState} from "react";
 import { AppCard } from "./App.styled";
 import { Section } from "../Section/Section";
 import { FeedbackButttons } from "../FeedbackOptions/FeedbackOptions";
