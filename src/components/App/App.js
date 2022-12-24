@@ -1,42 +1,47 @@
-import React, {Component} from "react";
+import React, {Component, useState} from "react";
 import { AppCard } from "./App.styled";
 import { Section } from "../Section/Section";
 import { FeedbackButttons } from "../FeedbackOptions/FeedbackOptions";
 import { Statistics } from "../StatisticsComponents/StatisticsWrap/Statistics";
 
-export class App extends Component {
-  state = {
-    good: 0, 
-    neutral: 0, 
-    bad: 0,
+
+export const App = () => {
+
+  const [good, setGood] = useState(0);
+  const [neutral, setNeutral] = useState(0);
+  const [bad, setBad] = useState(0);
+
+  const total = good + neutral + bad;
+
+  const setFeedbackAmount = e => {
+    const typeOfFeedback = e.target.closest('button').id;
+    switch (typeOfFeedback) {
+      case 'good':
+        setGood(good + 1);
+        break;
+      case 'neutral':
+        setNeutral(neutral + 1);
+        break;
+      case 'bad':
+        setBad(bad + 1);
+        break;
+      default:
+        break;
+    }
   }
 
-  setFeedbackAmount = (e) => {
-    const clickedBtn = e.target.closest('button');
-    this.setState({[clickedBtn.id]: this.state[clickedBtn.id] + 1});
-  }
 
-  countTotalFeedback = () => {
-    return Object.values(this.state).reduce((sum, cur) => { return sum += cur});
-  }
+  return (
+    <AppCard>
 
+      <Section sectionTitle={"please leave feedback"}>
+        <FeedbackButttons options = {['good', 'neutral', 'bad']} onLeaveFeedback={setFeedbackAmount}/>
+      </Section>
 
-  render() {
-    const total = this.countTotalFeedback();
-    const options = Object.keys(this.state);
-
-    return (
-      <AppCard>
-
-        <Section sectionTitle={"please leave feedback"}>
-          <FeedbackButttons options = {options} onLeaveFeedback={this.setFeedbackAmount}/>
-        </Section>
-
-        <Section>
-          <Statistics good = {this.state.good} neutral = {this.state.neutral} bad = {this.state.bad} total = {total}/>
-        </Section>
-        
-      </AppCard>
-    );
-  }
+      <Section>
+        <Statistics good = {good} neutral = {neutral} bad = {bad} total = {total}/>
+      </Section>
+      
+    </AppCard>
+  );
 };
